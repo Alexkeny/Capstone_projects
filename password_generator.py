@@ -7,7 +7,7 @@ digits = '01234567890'
 lowercase_letters = 'abcdefghijklmnopqrstuvwxyz'
 uppercase_letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 special = '!#$%&*+-=?@^_'
-excluded = 'il1Lo0O'
+excluded = 'il1Lo0O '
 
 chars = '' # to store our password 
 # CAUTION it's unsave to store password in plaintext
@@ -71,25 +71,34 @@ def generate_password(pass_length, chars_list):
         print(random.choice(chars_list), end='')
     print()
 
-password_num = pass_num()
-password_len = pass_len()
-password_nums = include_num()
-password_up = include_upper()
-password_low = include_lower()
-password_spec = include_special()
-password_some = exclude_some()
+while True:
+    password_num = pass_num()
+    password_len = pass_len()
+    password_nums = include_num()
+    password_up = include_upper()
+    password_low = include_lower()
+    password_spec = include_special()
+    password_some = exclude_some()
 
-if password_nums:
-    chars += digits
-if password_up:
-    chars += uppercase_letters
-if password_low:
-   chars += lowercase_letters
-if password_spec:
-    chars += special
-if password_some:
-    for c in excluded:
-        chars = chars.replace(c, '')
+    if password_nums:
+        chars += digits
+    if password_up:
+        chars += uppercase_letters
+    if password_low:
+        chars += lowercase_letters
+    if password_spec:
+        chars += special
+    if password_some:
+        for c in excluded:
+            chars = chars.replace(c, '')
 
-for _ in range(password_num):
-    generate_password(password_len, chars)
+    if len(chars) != 0:
+        for _ in range(password_num):
+            generate_password(password_len, chars)
+        break
+    else:
+        print('There is no options for password. Choose at least one. Try one more time? (y/n)')
+        if check_char():
+            continue
+        else:
+            break
