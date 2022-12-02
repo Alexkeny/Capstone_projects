@@ -138,3 +138,26 @@ if choose_encription() == 'dec':
     print(decrypt(text, rotate, lang))
 else:
     print(encrypt(text, rotate, lang))
+
+
+# Additional task
+# take user input, rotate for each word is the length of the word (wothout special symbols)
+""" text = input().split()
+print(text)
+result = ''
+for item in text:
+    special = ''
+    count = 0
+    if item.isalpha():
+        result = result + ' ' + encrypt(item, len(item), 'en')
+    else:
+        for char in item:
+            if char.isalpha():
+                count += 1
+        for char in item:
+            if char.isalpha():
+                special += encrypt(char, count, 'en')
+            else:
+                special += char
+        result = result + ' ' + special
+print(result) """
