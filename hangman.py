@@ -97,7 +97,7 @@ def play(word):
     print(display_hangman(tries))
     print("Word:", word_completion)
     print(word)
-    
+
     while True:
         guess = input(f"Provide your guess word or letter. Word has {len(word)} letters: ")
         word_completion = ''
@@ -150,10 +150,20 @@ def play(word):
                 continue
         else:
             print("Incorrect symbol.")
-            break # REPLACE TO CONTINUE BEFORE PRODUCTION
+            continue
     
     if guessed and (tries > 0):
         return print('Congratulations!')
     else:
         return print("Game is over.")
 
+while True:
+    play(get_word())
+    user_input = input("Would you like to play again? (y/n) ")
+    if user_input == 'y':
+        continue
+    elif user_input == 'n':
+        break
+    else:
+        print("Incorrect input.")
+        break

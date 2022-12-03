@@ -7,3 +7,4 @@ Here is my list:
 - Magic ball 8
 - Simple password generator
 - Caesar Cipher
+- Hangman
